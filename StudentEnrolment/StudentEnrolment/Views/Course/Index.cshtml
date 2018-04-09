@@ -1,4 +1,5 @@
-﻿@model StudentEnrolment.Models.Course
+﻿@*@model StudentEnrolment.Models.Course*@
+@model List<StudentEnrolment.Models.Course>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,12 +11,12 @@
     <table class="table">
         <thead>
             <tr>
-                <th> @Html.DisplayNameFor(model => model.courses[0].Name)</th>
-                <th>@Html.DisplayNameFor(model => model.courses[0].Element)</th>
+                <th> @Html.DisplayNameFor(model => model[0].Name)</th>
+                <th>@Html.DisplayNameFor(model => model[0].Element)</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.courses)
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>@Html.DisplayFor(modelItem => item.Name)</td>

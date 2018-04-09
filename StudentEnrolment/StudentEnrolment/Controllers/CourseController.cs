@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StudentEnrolment.Data;
+using StudentEnrolment.Models;
 
 namespace StudentEnrolment.Controllers
 {
@@ -18,7 +19,13 @@ namespace StudentEnrolment.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            //Generate the list of Courses
+            //var courses = from c in _context.Courses
+            //             select c;
+
+            var courses = _context.Courses.ToList();
+            // send that list to the View
+            return View(courses);
         }
 
         public IActionResult Create()
