@@ -1,0 +1,33 @@
+﻿@model StudentEnrolment.Models.Course
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List of courses</h1>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th> @Html.DisplayNameFor(model => model.courses[0].Name)</th>
+                <th>@Html.DisplayNameFor(model => model.courses[0].Element)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.courses)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Element)</td>
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
