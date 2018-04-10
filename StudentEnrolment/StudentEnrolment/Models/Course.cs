@@ -10,7 +10,6 @@ namespace StudentEnrolment.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public Element Element { get; set; }
-
     }
 
     public enum Element
@@ -20,4 +19,6 @@ namespace StudentEnrolment.Models
         Earth,
         Fire
     }
+
+
 }
