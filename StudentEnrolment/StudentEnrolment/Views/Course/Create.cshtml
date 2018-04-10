@@ -9,6 +9,10 @@
     <form method="post">
         <label for="Name">Course Title</label>
         <input name="Name" />
+        @*<select asp-enum-for="Element" asp-items="Enum.GetNames(typeof(Element))"></select>*@
+        <select asp-for="Element" asp-items="Html.GetEnumSelectList<Element>()">
+            <option selected="selected" value="">Please select</option>
+        </select>
     </form>
 
 </div>
