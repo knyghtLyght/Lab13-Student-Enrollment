@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using StudentEnrolment.Models;
 using Microsoft.AspNetCore.Mvc;
 using StudentEnrolment.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace StudentEnrolment.Controllers
 {
@@ -18,6 +19,29 @@ namespace StudentEnrolment.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var student = await _context.Students
+                .SingleOrDefaultAsync(m => m.ID == id);
+            if (student == null)
+            {
+                return NotFound();
+            }
+
+            return View(student);
+        }
+
+        public IActionResult Create()
         {
             return View();
         }
