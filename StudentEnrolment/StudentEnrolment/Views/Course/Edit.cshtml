@@ -1,6 +1,20 @@
-﻿@model StudentEnrolment.Models.Course
+﻿@using StudentEnrolment.Models
+@model StudentEnrolment.Models.CourseViewModel
 @{
     ViewData["Title"] = "Edit";
 }
 
 <h1>Change Course peramiters</h1>
+
+<div>
+    <form method="post">
+        <label asp-for="Name">Course Title</label>
+        <input asp-for="Name" />
+        <select asp-for="Elements" asp-items="Html.GetEnumSelectList(typeof(Element))">
+            <option selected="selected" value="">Please select</option>
+        </select>
+        <div>
+            <button type="submit">Edit Course</button>
+        </div>
+    </form>
+</div>
