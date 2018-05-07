@@ -1,4 +1,5 @@
-﻿@model StudentEnrolment.Models.Course
+﻿@using StudentEnrolment.Models
+@model StudentEnrolment.Models.CourseViewModel
 @{
     ViewData["Title"] = "Create";
 }
@@ -7,13 +8,14 @@
 
 <div>
     <form method="post">
-        <label for="Name">Course Title</label>
-        <input name="Name" />
-        @*<select asp-enum-for="Element" asp-items="Enum.GetNames(typeof(Element))"></select>*@
-        <select asp-for="Element" asp-items="Html.GetEnumSelectList<Element>()">
+        <label asp-for="Name">Course Title</label>
+        <input asp-for="Name" />
+        <select asp-for="Elements" asp-items="Html.GetEnumSelectList(typeof(Element))">
             <option selected="selected" value="">Please select</option>
         </select>
+        <div>
+            <button type="submit">Create</button>
+        </div>
     </form>
-
 </div>
 

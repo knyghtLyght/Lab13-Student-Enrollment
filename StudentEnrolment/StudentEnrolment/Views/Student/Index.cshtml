@@ -1,6 +1,35 @@
-﻿@model StudentEnrolment.Models.Student
+﻿@model List<StudentEnrolment.Models.Student>
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>View Students</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th> @Html.DisplayNameFor(model => model[0].Name)</th>
+                <th>@Html.DisplayNameFor(model => model[0].Course)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Course)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Detail" asp-route-id="@item.ID">Detail</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

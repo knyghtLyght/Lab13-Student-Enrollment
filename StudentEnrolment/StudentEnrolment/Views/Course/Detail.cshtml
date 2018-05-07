@@ -1,6 +1,35 @@
-﻿@model StudentEnrolment.Models.Course
+﻿@model StudentEnrolment.Models.CourseDetailViewModel
 @{
     ViewData["Title"] = "Detail";
 }
 
 <h1>View course and enrolled students</h1>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Course.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.Elements)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Course.Elements)
+        </dd>
+    </dl>
+    <div class="list-group">
+        @foreach (var student in Model.EStudents)
+        {
+            <a class="list-group-item list-group-item-action" asp-controller="Students" asp-action="Details" asp-route-id="@student.ID">@student.Name</a>
+        }
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Course.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

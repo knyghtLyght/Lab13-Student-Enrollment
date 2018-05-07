@@ -1,24 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace StudentEnrolment.Models
 {
-    public class Course
+    public class CourseViewModel
     {
-        public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public Element Elements { get; set; }
     }
-
-    public enum Element
-    {
-        Air,
-        Water,
-        Earth,
-        Fire
-    }
-
-
 }

@@ -21,13 +21,13 @@ namespace StudentEnrolment.Models
                     return;   // No seed data needed
                 }
 
-                Course course1 = new Course() { Name = "Basic air surfing", Element = Element.Air };
+                Course course1 = new Course() { Name = "Basic air surfing", Elements = Element.Air };
                 context.Courses.Add(course1);
-                Course course2 = new Course { Name = "Ice throwing", Element = Element.Water };
+                Course course2 = new Course { Name = "Ice throwing", Elements = Element.Water };
                 context.Courses.Add(course2);
-                Course course3 = new Course { Name = "Shape your own armor", Element = Element.Earth };
+                Course course3 = new Course { Name = "Shape your own armor", Elements = Element.Earth };
                 context.Courses.Add(course3);
-                Course course4 = new Course { Name = "Control: How to heat your tea pot", Element = Element.Fire };
+                Course course4 = new Course { Name = "Control: How to heat your tea pot", Elements = Element.Fire };
                 context.Courses.Add(course4);
 
                 //Update database
@@ -41,9 +41,9 @@ namespace StudentEnrolment.Models
 
                 context.Students.AddRange(
                     new Student { Name = "Ang", Course = course1 },
-                    new Student { Name = "Katara", Course = course1 },
-                    new Student { Name = "Toph", Course = course1 },
-                    new Student { Name = "Zuko", Course = course1 }
+                    new Student { Name = "Katara", Course = course2 },
+                    new Student { Name = "Toph", Course = course3 },
+                    new Student { Name = "Zuko", Course = course4 }
                     );
 
                 //Update database

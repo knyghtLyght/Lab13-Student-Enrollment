@@ -20,6 +20,14 @@ namespace StudentEnrolment.Controllers
 
         public IActionResult Index()
         {
+            //Generate the list of Courses
+            var students = _context.Students.ToList();
+            // send that list to the View
+            return View(students);
+        }
+
+        public IActionResult Create()
+        {
             return View();
         }
 
