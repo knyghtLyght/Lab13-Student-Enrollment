@@ -1,6 +1,19 @@
-﻿@model StudentEnrolment.Models.Student
+﻿@model StudentEnrolment.Models.StudentViewModel
 @{
     ViewData["Title"] = "Create";
 }
 
 <h1>Enroll a new Student</h1>
+
+<div>
+    <form method="post">
+        <label asp-for="Name">Course Title</label>
+        <input asp-for="Name" />
+        <select asp-for="ChoseCourse" asp-items="Html.GetEnumSelectList(typeof(Element))">
+            <option selected="selected" value="">Please select</option>
+        </select>
+        <div>
+            <button type="submit">Create</button>
+        </div>
+    </form>
+</div>

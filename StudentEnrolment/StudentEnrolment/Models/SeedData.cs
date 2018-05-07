@@ -41,9 +41,9 @@ namespace StudentEnrolment.Models
 
                 context.Students.AddRange(
                     new Student { Name = "Ang", Course = course1 },
-                    new Student { Name = "Katara", Course = course1 },
-                    new Student { Name = "Toph", Course = course1 },
-                    new Student { Name = "Zuko", Course = course1 }
+                    new Student { Name = "Katara", Course = course2 },
+                    new Student { Name = "Toph", Course = course3 },
+                    new Student { Name = "Zuko", Course = course4 }
                     );
 
                 //Update database
